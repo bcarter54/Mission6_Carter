@@ -1,0 +1,69 @@
+@model Movie
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+@* Use form to gather and submit info for new movie submission*@
+
+<h2>Add a Movie</h2>
+
+<form action="" method="post">
+    <label asp-for="Category">Category: </label>
+    <select asp-for="Category" required>
+        <option value="Drama">Drama</option>
+        <option value="Television">Television</option>
+        <option value="Horror/Suspense">Horror/Suspense</option>
+        <option value="Family">Family</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Action/Adventure">Action/Adventure</option>
+        <option value="Miscellaneous">Miscellaneous</option>
+    </select>
+    
+    <br><br>
+    
+    <label asp-for="Title">Title: </label>
+    <input type="text" asp-for="Title" required>
+    
+    <br><br>
+    
+    <label asp-for="Year">Year(s): </label>
+    <input type="text" asp-for="Year" required>
+    
+    <br><br>
+    
+    <label asp-for="Director">Director: </label>
+    <input type="text" asp-for="Director" required>
+    
+    <br><br>
+    
+    <label asp-for="Rating">Rating: </label>
+    <select asp-for="Rating" required>
+        <option value="G">G</option>
+        <option value="PG">PG</option>
+        <option value="PG-13">PG-13</option>
+        <option value="R">R</option>
+    </select>
+    
+    <br><br>
+
+    <label asp-for="Edited">Edited: </label>
+    <select asp-for="Edited">
+        <option value="False">No</option>
+        <option value="True">Yes</option>
+    </select>
+
+    <br><br>
+
+    <label asp-for="Lent">Lent to: </label>
+    <input type="text" asp-for="Lent">
+
+    <br><br>
+
+    <label asp-for="Notes">Notes: </label>
+    <textarea cols="25" rows="1" maxlength="25" asp-for="Notes"></textarea>
+
+    <br><br>
+    <button type="submit">Submit Movie</button>
+</form>
