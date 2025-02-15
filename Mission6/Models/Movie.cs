@@ -13,7 +13,7 @@ public class Movie
     public string Year {get; set;}
     public string Director {get; set;}
     public string Rating {get; set;}
-    public string Edited {get; set;}
+    public bool Edited {get; set;}
     public string? Lent {get; set;}
     public string? Notes {get; set;}
 }
