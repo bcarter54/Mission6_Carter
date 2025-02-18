@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3rVs9dLZ1ko=",
+  "dgSpecHash": "bbRulzPqjBI=",
   "success": true,
-  "projectFilePath": "/Users/bcarter/RiderProjects/Mission6/Mission6/Mission6.csproj",
+  "projectFilePath": "/Users/bcarter/RiderProjects/Mission7/Mission6/Mission6.csproj",
   "expectedPackageFiles": [
     "/Users/bcarter/.nuget/packages/bootstrap/5.3.3/bootstrap.5.3.3.nupkg.sha512",
     "/Users/bcarter/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",

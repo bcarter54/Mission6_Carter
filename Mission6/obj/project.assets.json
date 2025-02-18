@@ -2751,11 +2751,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/bcarter/RiderProjects/Mission6/Mission6/Mission6.csproj",
+      "projectUniqueName": "/Users/bcarter/RiderProjects/Mission7/Mission6/Mission6.csproj",
       "projectName": "Mission6",
-      "projectPath": "/Users/bcarter/RiderProjects/Mission6/Mission6/Mission6.csproj",
+      "projectPath": "/Users/bcarter/RiderProjects/Mission7/Mission6/Mission6.csproj",
       "packagesPath": "/Users/bcarter/.nuget/packages/",
-      "outputPath": "/Users/bcarter/RiderProjects/Mission6/Mission6/obj/",
+      "outputPath": "/Users/bcarter/RiderProjects/Mission7/Mission6/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/bcarter/.nuget/NuGet/NuGet.Config"
