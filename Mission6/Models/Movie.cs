@@ -15,8 +15,10 @@ public class Movie
     public Category? Category { get; set; }
     [Required]
     public string Title { get; set; }
-    [Required(ErrorMessage = "Please enter a year later than 1887")]
-    [Range(1888, int.MaxValue)]
+    /* Display specific error message if the wrong year value is entered */
+    
+    [Range(1888, int.MaxValue, ErrorMessage = "Please enter a year later than 1887")]
+    [Required]
     public int Year {get; set;}
     public string? Director {get; set;}
     public string? Rating {get; set;}

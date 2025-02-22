@@ -17,7 +17,7 @@ public class DbMovieContext : DbContext
     [Required]
     public DbSet<Category> Categories { get; set; }
     
-    
+    /* Have the structure of the Category data set */
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Category>().HasData(

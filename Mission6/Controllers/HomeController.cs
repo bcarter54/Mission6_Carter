@@ -28,7 +28,7 @@ public class HomeController : Controller
         return View("GetToKnowJoel");
     }
 
-    /* When AddMovie is called, display the view */
+    /* When AddMovie is called, display the view with categories and a new movie object provided */
     [HttpGet]
     public IActionResult AddMovie()
     {
@@ -54,6 +54,7 @@ public class HomeController : Controller
         return View(movie);
     }
 
+    /* Display all movies with the categories as well */
     public IActionResult EditMovieList()
     {
         var movieList = _context.Movies.Include(x=>x.Category).ToList();    
@@ -61,6 +62,7 @@ public class HomeController : Controller
         return View(movieList);
     }
 
+    /* Receive the movie id of the movie to edit and display it on the add movies page for editing*/
     [HttpGet]
     public IActionResult EditMovie(int edit)
     {
@@ -71,6 +73,7 @@ public class HomeController : Controller
         return View("AddMovie",movieToEdit);
     }
 
+    /* Update the chosen movie in the database, then go back to the edit movie list */
     [HttpPost]
     public IActionResult EditMovie(Movie movie)
     {
@@ -79,7 +82,8 @@ public class HomeController : Controller
         
         return RedirectToAction("EditMovieList");
     }
-
+ 
+    /* Display the movie to be deleted on delete page */
     [HttpGet]
     public IActionResult DeleteMovie(int delete)
     {
@@ -89,7 +93,8 @@ public class HomeController : Controller
         
         return View(movieToDelete);
     }
-
+    
+    /* Receive movie and delete from database*/
     [HttpPost]
     public IActionResult DeleteMovie(Movie movie)
     {
