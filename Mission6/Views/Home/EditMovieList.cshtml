@@ -1,0 +1,50 @@
+@using System.Security.Cryptography
+@model List<Movie>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>Edit a Movie</h2>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Year</th>
+        <th>Director</th>
+        <th>Rating</th>
+        <th>Edited</th>
+        <th>Lent To</th>
+        <th>Copied to Plex</th>
+        <th>Notes</th>
+    </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Movie mov in Model)
+        {
+            <tr>
+                <td hidden>@mov.MovieId</td>
+                <td>@mov.Title</td>
+                <td>@mov.Category.CategoryName</td>
+                <td>@mov.Year</td>
+                <td>@mov.Director</td>
+                <td>@mov.Rating</td>
+                <td>@mov.Edited</td>
+                <td>@mov.LentTo</td>
+                <td>@mov.CopiedToPlex</td>
+                <td>@mov.Notes</td>
+                
+                <td><a class="btn btn-info" asp-controller="Home" asp-action="EditMovie" 
+                       asp-route-edit="@mov.MovieId">Edit</a></td>
+                <td><a class="btn btn-danger" asp-controller="Home" 
+                       asp-action="DeleteMovie" asp-route-delete="@mov.MovieId">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+

@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Mission6.Models;
 
 namespace Mission6.Controllers;
@@ -31,18 +32,72 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult AddMovie()
     {
-        return View();
+        ViewBag.Categories = _context.Categories.OrderBy(x => x.CategoryName).ToList();
+        
+        return View(new Movie());
     }
     
     /* When post is used and the form with information is passed, add the record to the table using _context */
     [HttpPost]
     public IActionResult AddMovie(Movie movie)
     {
-        _context.Movies.Add(movie);
-        _context.SaveChanges();
-        
-        return View("Confirmation", movie);
+        if (ModelState.IsValid)
+        {
+            _context.Movies.Add(movie);
+            _context.SaveChanges();
+            
+            return View("Confirmation", movie);
+        }
+
+        // If model is invalid, reload form with categories
+        ViewBag.Categories = _context.Categories.ToList();
+        return View(movie);
     }
 
+    public IActionResult EditMovieList()
+    {
+        var movieList = _context.Movies.Include(x=>x.Category).ToList();    
+        
+        return View(movieList);
+    }
+
+    [HttpGet]
+    public IActionResult EditMovie(int edit)
+    {
+        var movieToEdit = _context.Movies.Single(x => x.MovieId == edit);
+        
+        ViewBag.Categories = _context.Categories.ToList();
+        
+        return View("AddMovie",movieToEdit);
+    }
+
+    [HttpPost]
+    public IActionResult EditMovie(Movie movie)
+    {
+        _context.Update(movie);
+        _context.SaveChanges();
+        
+        return RedirectToAction("EditMovieList");
+    }
+
+    [HttpGet]
+    public IActionResult DeleteMovie(int delete)
+    {
+        var movieToDelete = _context.Movies.Single(x => x.MovieId == delete);
+        
+        ViewBag.Categories = _context.Categories.ToList();
+        
+        return View(movieToDelete);
+    }
+
+    [HttpPost]
+    public IActionResult DeleteMovie(Movie movie)
+    {
+        _context.Movies.Remove(movie);
+        _context.SaveChanges();
+        
+        return RedirectToAction("EditMovieList");
+    }
+    
 
 }
